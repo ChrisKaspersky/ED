@@ -17,7 +17,7 @@ while True:
     print("Encrypt or decrypt?")
     while True:
         selection = input()
-        selection.lower()
+        selection = selection.lower()
         if selection == "encrypt":
             # Генерация необходимых переменных для RSA
             p = rsa_service.rsa_keygen_p()
@@ -50,8 +50,10 @@ while True:
             privatekey_save.write(str(n))
             break
         elif selection == "decrypt":
+            # Ввод секретного ключа
             print("Enter path to the private key")
             privatekey_path = input()
+            # Обработка ошибок файлового ввода
             try:
                 privatekey = open(privatekey_path, 'r').read()
             except FileNotFoundError:  # Если файл не найден
@@ -63,17 +65,19 @@ while True:
             except PermissionError:  # Недостаточно прав для доступа к файлу\директории
                 print("Error: you don't have permission to this file\directory")
                 break
+            # Считывание секретного ключа
             d = int(privatekey[:privatekey.find(" ")])
             n = int(privatekey[privatekey.find(" ")+1:])
+            # Разшифровка
             fout = ""
             for i in range(file.count(" ")):
                 tmp = int(file[:file.find(" ")])
                 res = (tmp**d) % n
                 fout += str(chr(res))
+            # Запись полученного сообщения
             fout_save = open(fpath, 'w')
             fout_save.write(fout)
             break
-
         else:
             print("Please, select something from the proposed")
     break
