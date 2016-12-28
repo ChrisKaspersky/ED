@@ -1,5 +1,5 @@
 import os
-print("Choose encrypting algorithm \n- table \n- md5 \n- sha-1")
+print("Choose encrypting algorithm \n- table \n- md5 \n- sha-1\n- rsa")
 while True:
     action = input().lower()
     if action == "table":
