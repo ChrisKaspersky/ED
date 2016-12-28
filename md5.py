@@ -17,7 +17,7 @@ while True:  # Для возможности при ошибке останов�
     # Хеширование алгоритмом md5
     hash = hashlib.md5(file.encode('utf-8')).hexdigest()
     # Запись в файл
-    fout = open(fpath)
+    fout = open(fpath,'w')
     fout.write(hash)
     fout.close()
     break
