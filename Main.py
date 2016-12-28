@@ -1,15 +1,18 @@
 import os
-print("Select action \n- Encrypt with table \n- Encrypt with md5 hash algorithm \n- Encrypt with SHA hash algorithm")
+print("Choose encrypting algorithm \n- table \n- md5 \n- sha-1")
 while True:
     action = input().lower()
-    if action == "encrypt with table":
+    if action == "table":
         os.system("table_coding.py")
         break
-    elif action == "encrypt with md5 hash algorithm":
+    elif action == "md5":
         os.system("md5.py")
         break
-    elif action == "encrypt with SHA hash algorithm":
+    elif action == "sha-1":
         os.system("sha1.py")
+        break
+    elif action == "rsa":
+        os.system("rsa.py")
         break
     else:
         print("Please, select something from the proposed")
