@@ -90,8 +90,10 @@ while True:
             fout = ""
             for i in range(file.count(" ")):
                 tmp = int(file[:file.find(" ")])
+                file = file[file.find(" ")+1:]
                 res = (tmp**d) % n
                 fout += str(chr(res))
+                print(file)
             # Запись полученного сообщения
             fout_save = open(fpath, 'w')
             fout_save.write(fout)
